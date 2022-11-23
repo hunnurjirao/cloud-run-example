@@ -1,3 +1,10 @@
 steps:
 - name: 'gcr.io/cloud-builders/gcloud'
-args: [ 'builds', 'submit', '--tag', 'gcr.io/$_PROJECT_ID/$_IMAGE_NAME', '.' ] 
+  args:
+  - functions
+  - deploy
+  - hello_world
+  - --source=.
+  - --trigger-http
+  - --runtime=python37
+  - --allow-unauthenticated
